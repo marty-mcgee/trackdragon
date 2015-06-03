@@ -1,8 +1,8 @@
 {
-	"name": "trackdragon/bedrock",
+	"name": "martymcgee/trackdragon",
 	"description": "TrackDragon Web Audio Multitrack Editor on WordPress Bedrock",
 	"version": "0.0.1",
-	"keywords": ["html5","web audio","multitrack editor","audio editor","audio recorder","audio editing","audio recording","wordpress","wordpress plugin"],
+	"keywords": ["html5","web audio","multitrack editor","audio editor","audio recorder","audio editing","audio recording","wordpress","wordpress plugin","bedrock"],
 	"homepage": "http://www.trackdragon.com",
 	"time": "2015-06-03 09:00:00",
 	"license": ["LGPL-2.1","GPL-3.0+"],
