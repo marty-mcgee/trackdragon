@@ -1,0 +1,20 @@
+{
+	"name": "trackdragon/bedrock",
+  "description": "TrackDragon Web Audio Multitrack Editor",
+  "authors": [
+      {
+          "name": "Marty McGee",
+          "email": "marty@companyjuice.com",
+          "url": "http://www.companyjuice.com"
+      }
+  ],
+  "repositories": [
+		{
+			"type": "composer",
+			"url": "http://wpackagist.org"
+		}
+	],
+	"require": {
+		"php": ">=5.4"
+	}
+}
