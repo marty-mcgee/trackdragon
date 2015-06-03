@@ -32,7 +32,7 @@
 					"reference": "4.2.2"
 				},
 				"require": {
-					"fancyguy/webroot-installer": "1.0.0"
+					"martymcgee/webroot-installer": "1.0.0"
 				}
 			}
 		},
