@@ -15,7 +15,7 @@
 			"url": "http://wpackagist.org"
 		}
 	],
-		"require": {
+	"require": {
 		"php": ">=5.4"
 	}
 }
