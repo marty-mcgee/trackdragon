@@ -40,11 +40,26 @@
 		}
 	],
 	"require": {
+
 		"php": ">=5.4",
-		"wordpress/wordpress": "4.2.2"
+		
+		"wordpress/wordpress": "4.2.2",
+
+		"wpackagist-plugin/advanced-custom-fields": "4.4.2",
+		"wpackagist-plugin/akismet": "3.1.1",
+		"wpackagist-plugin/captcha": "2011.2.11",
+		"wpackagist-plugin/posts-to-posts": "1.6.4",
+		
+		"wpackagist-theme/hueman": "1.5.6",
+
+		"aws/aws-sdk-php": "3.0.3"
+
 	},
 	"extra": {
 		"webroot-dir": "wp",
-		"webroot-package": "wordpress/wordpress"
+		"webroot-package": "wordpress/wordpress",
+		"installer-paths": {
+			"app/plugins/{$name}/": ["type:wordpress-plugin"]
+		}
 	}
 }
