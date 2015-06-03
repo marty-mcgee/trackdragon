@@ -1,7 +1,7 @@
 {
 	"name": "trackdragon/bedrock",
 	"description": "TrackDragon Web Audio Multitrack Editor",
-	"url": "http://www.trackdragon.com"
+	"url": "http://www.trackdragon.com",
 	"authors": [
 		{
 			"name": "Marty McGee",
