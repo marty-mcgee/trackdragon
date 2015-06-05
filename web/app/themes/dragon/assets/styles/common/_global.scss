@@ -1,1 +1,35 @@
-
+/* dragon css */
+body {
+	background: #222;
+	color: #ccc;
+}
+header.banner {
+	background: #333;
+	border: 1px solid #000;
+}
+#logo {
+	float: left;
+	width: 20%;
+	padding-top: 0.7em;
+	padding-bottom: 0.7em;
+	border: 0px solid #f70;
+}
+header.banner nav {
+	float: right;
+	width: 80%;
+	text-align: right;
+	border: 0px solid #fff;
+}
+header.banner nav .nav {
+	float: right;
+	border: 0px solid #999;
+}
+a, a:hover {
+  color: #80bd01;
+}
+h1, h2, h3, h4 {
+  color: #80bd01;
+}
+.sidebar {
+  margin-top: 2.0em;
+}

@@ -1,16 +1,21 @@
 {
-  "name": "sage",
-  "homepage": "https://roots.io/sage/",
+  "name": "dragon",
+  "homepage": "http://trackdragon.com/",
   "authors": [
-    "Ben Word <ben@benword.com>"
+    "Marty McGee, Company Juice <marty@companyjuice.com>"
   ],
-  "license": "MIT",
+  "license": "GPL-3.0+",
   "private": true,
   "dependencies": {
     "modernizr": "2.8.2",
-    "bootstrap-sass-official": "3.3.4"
+    "bootstrap-sass-official": "3.3.4",
+    "slick-carousel": "~1.5.5",
+    "fontawesome": "~4.3.0"
   },
   "overrides": {
+    "slick-carousel": {
+      "main": "./slick/slick.min.js"
+    },
     "modernizr": {
       "main": "./modernizr.js"
     },
