@@ -72,3 +72,16 @@ define('DISALLOW_FILE_EDIT', true);
 if (!defined('ABSPATH')) {
   define('ABSPATH', $webroot_dir . '/wp/');
 }
+
+/* CUSTOM CODE */
+/**
+ * Stage Switcher Plugin
+ */
+$envs = array(
+  'development' => 'http://bedrock.trackdragon.com',
+  'staging'     => 'http://test.trackdragon.com',
+  'production'  => 'http://trackdragon.com'
+);
+define('ENVIRONMENTS', serialize($envs));
+# already set with bedrock and .env
+#define('WP_ENV', 'development');
