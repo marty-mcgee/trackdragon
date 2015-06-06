@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9e134be32040b0244bd39c76bdc7fb86",
+    "hash": "e3e993bf63b8a8b3def67737356936b4",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -571,6 +571,48 @@
                 "wordpress"
             ],
             "time": "2015-04-29 04:46:56"
+        },
+        {
+            "name": "roots/wp-stage-switcher",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/roots/wp-stage-switcher.git",
+                "reference": "e7f733f7db05b2682cc6d9268a3662b9e8e81ff0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/roots/wp-stage-switcher/zipball/e7f733f7db05b2682cc6d9268a3662b9e8e81ff0",
+                "reference": "e7f733f7db05b2682cc6d9268a3662b9e8e81ff0",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.3.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Scott Walkinshaw",
+                    "email": "scott.walkinshaw@gmail.com",
+                    "homepage": "https://github.com/swalkinshaw"
+                },
+                {
+                    "name": "Ben Word",
+                    "email": "ben@benword.com",
+                    "homepage": "https://github.com/retlehs"
+                }
+            ],
+            "description": "WordPress plugin that allows you to switch between different environments from the admin bar",
+            "homepage": "http://roots.io/plugin/stage-switcher/",
+            "keywords": [
+                "wordpress"
+            ],
+            "time": "2014-08-20 00:14:42"
         },
         {
             "name": "vlucas/phpdotenv",

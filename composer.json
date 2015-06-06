@@ -51,7 +51,8 @@
 		"wpackagist-theme/hueman": "1.5.6",
 
 		"aws/aws-sdk-php": "3.0.3",
-		"roots/soil": "3.4.0"
+		"roots/soil": "3.4.0",
+		"roots/wp-stage-switcher": "1.0.3"
 
 	},
 	"extra": {
