@@ -11,7 +11,8 @@
     "bootstrap-sass-official": "3.3.4",
     "slick-carousel": "~1.5.5",
     "fontawesome": "~4.3.0",
-    "web-audio-editor": "git://github.com/janmyler/web-audio-editor.git"
+    "web-audio-editor": "git://github.com/janmyler/web-audio-editor.git",
+    "moment": "~2.10.3"
   },
   "overrides": {
     "slick-carousel": {
