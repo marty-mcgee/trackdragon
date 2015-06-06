@@ -2,7 +2,7 @@
   <div class="container">
     <?php dynamic_sidebar('sidebar-footer'); ?>
   </div>
-  <div class="container text-right fixed">
+  <div class="container">
     <nav role="navigation">
       <i class="fa fa-fast-backward"></i>
       <i class="fa fa-backward"></i>

@@ -2,7 +2,8 @@
 <header class="banner navbar navbar-default navbar-static-top" role="banner">
   <div class="container">
     <div id="logo">
-      -||- <a class="brand" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
+      -||-
+      <a class="brand" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
     </div>
     <?php /* NEW
     <nav role="navigation">

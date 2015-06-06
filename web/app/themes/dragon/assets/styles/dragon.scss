@@ -4,7 +4,7 @@ body {
 	color: #ccc;
 }
 header {
-	border: 0px solid yellow !important;
+	/*border: 1px solid black !important;*/
 }
 header.banner {
 	background: #333;
@@ -14,7 +14,7 @@ header.banner {
   position: relative;
   min-height: 40px;
   margin-bottom: 0px;
-  border: 1px solid transparent;
+  border: 1px solid #000;
 }
 #logo {
 	float: left;
@@ -58,7 +58,7 @@ h1, h2 {
 .page-header {
   padding-bottom: 9px;
   margin: 20px 0 20px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #000;
 }
 .sidebar {
   margin-top: 2.0em;
@@ -96,4 +96,6 @@ footer {
   height: 40px;
   padding-top: 10px;
   background-color: #111;
+  text-align: center;
+  margin: 0 auto 0 auto;
 }
