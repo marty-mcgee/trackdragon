@@ -24,4 +24,4 @@
 =====================
 
 Drag on, brothers + sisters.   
-Drag on -||- ninja   
+Drag on, ninja -||-   
