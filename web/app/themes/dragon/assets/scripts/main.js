@@ -19,6 +19,7 @@
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
+        //alert("HEY HEY HEY");
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired

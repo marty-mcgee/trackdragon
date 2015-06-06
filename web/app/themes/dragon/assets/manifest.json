@@ -19,6 +19,16 @@
     },
     "modernizr.js": {
       "bower": ["modernizr"]
+    },
+    "dragon.css": {
+      "files": [
+        "styles/dragon.scss"
+      ]
+    },
+    "dragon.js": {
+      "files": [
+        "scripts/dragon.js"
+      ]
     }
   },
   "config": {

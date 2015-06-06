@@ -1,0 +1,99 @@
+/* dragon css */
+body {
+	background: #222;
+	color: #ccc;
+}
+header {
+	border: 0px solid yellow !important;
+}
+header.banner {
+	background: #333;
+	border: 1px solid #000;
+}
+.navbar {
+  position: relative;
+  min-height: 40px;
+  margin-bottom: 0px;
+  border: 1px solid transparent;
+}
+#logo {
+	float: left;
+	width: 40%;
+	padding-top: 0.7em;
+	padding-bottom: 0.7em;
+	border: 0px solid #f70;
+}
+header.banner nav {
+	float: right;
+	width: 60%;
+	text-align: right;
+	border: 0px solid #fff;
+}
+header.banner nav .nav {
+	float: right;
+	display: inline;
+	width: auto;
+	border: 0px solid #999;
+}
+header.banner nav .nav > li > a {
+  color: #80bd01;
+}
+header.banner nav .nav > li > a:focus, 
+header.banner nav .nav > li > a:hover {
+  text-decoration: underline;
+  background-color: #555;
+  color: #80bd01;
+}
+header.banner nav .nav > li > a:active {
+  text-decoration: underline;
+  background-color: #444;
+  color: #80bd01;
+}
+a, a:hover, a:focus {
+  color: #80bd01;
+}
+h1, h2 {
+  color: #80bd01;
+}
+.page-header {
+  padding-bottom: 9px;
+  margin: 20px 0 20px;
+  border-bottom: 1px solid #ccc;
+}
+.sidebar {
+  margin-top: 2.0em;
+}
+.comments {
+  margin-top: 2.0em;
+}
+
+@media (min-width: 768px){
+	.navbar-nav>li>a {
+	  padding-top: 10px;
+	  padding-bottom: 10px;
+	}
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 40px;
+}
+body .wrap {
+  /* Margin top by header height */
+  padding-top: 40px;
+}
+header.banner {
+  position: fixed;
+  width: 100%;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+  padding-top: 10px;
+  background-color: #111;
+}
