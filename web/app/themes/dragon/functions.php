@@ -19,6 +19,7 @@ $sage_includes = [
   'lib/titles.php',                // Page titles
   'lib/extras.php',                // Custom functions
   'lib/wp_bootstrap_navwalker.php',// Restored bootstrap navwalker
+  'lib/dragon.php',                // Initialize TrackDragon
 ];
 
 foreach ($sage_includes as $file) {

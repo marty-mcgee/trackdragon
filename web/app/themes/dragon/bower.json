@@ -14,8 +14,8 @@
     "web-audio-editor": "git://github.com/janmyler/web-audio-editor.git",
     "moment": "~2.10.3",
     "underscore": "~1.8.3",
-    "require": "*",
-    "backbone": "~1.2.1"
+    "backbone": "~1.2.1",
+    "requirejs": "~2.1.18"
   },
   "overrides": {
     "slick-carousel": {

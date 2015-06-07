@@ -29,6 +29,11 @@
       "files": [
         "scripts/dragon.js"
       ]
+    },
+    "wae.css": {
+      "files": [
+        "styles/wae.less"
+      ]
     }
   },
   "config": {
