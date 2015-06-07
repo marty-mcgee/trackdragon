@@ -17,20 +17,16 @@ to style.css, and replace the 2 lines above by this one: -->
 
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
-        <div class="container-fluid">
-            <div class="pull-left editable" id="project-name"></div>
-            <div class="btn-toolbar" id="playback-controls">
-                <input type="text" id="time-display" value="-:--:--.---">
-                <button class="btn" id="play" title="play"><i class="fa fa-play"></i></button>
-                <button class="btn" id="stop" title="stop" ><i class="fa fa-stop"></i></button>
-                <button class="btn" id="follow" title="toggle follow"><i class="fa fa-eye"></i><i class="fa fa-eye-close"></i></button>
-            </div>
-        </div>
-        <!--<div class="app-name">-||-</div>-->
-    </div>
+    </div>    
 </div>
-<div class="menubar" id="menu-view">
-    <ul class="nav nav-pills"></ul>
+<div class="navbar-inner">
+    <div class="container-fluid">
+        <!--<div class="app-name">-||-</div>-->
+        <div class="pull-right editable" id="project-name"></div>
+        <div class="menubar" id="menu-view">
+            <ul class="nav nav-pills"></ul>
+        </div>
+    </div>
 </div>
 <div id="app-frame" class="container-fluid">
     <div class="row-fluid">
@@ -42,6 +38,14 @@ to style.css, and replace the 2 lines above by this one: -->
         </div> <!-- /div#editor-view -->
     </div> 
 </div> <!-- /div#app-frame -->
+<!--<div class="container-fluid">
+    <div class="btn-toolbar" id="playback-controls">
+        <input type="text" id="time-display" value="-:--:--.---">
+        <button class="btn" id="play" title="play"><i class="fa fa-play"></i></button>
+        <button class="btn" id="stop" title="stop" ><i class="fa fa-stop"></i></button>
+        <button class="btn" id="follow" title="toggle follow"><i class="fa fa-eye"></i><i class="fa fa-eye-close"></i></button>
+    </div>
+</div>-->
 
 <!-- JavaScript at the bottom for fast page loading 
 <script data-main="/app/themes/dragon/bower_components/web-audio-editor/js/main" src="/app/themes/dragon/bower_components/web-audio-editor/js/libs/require/require.js"></script>-->
