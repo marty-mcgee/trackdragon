@@ -12,7 +12,8 @@
     "slick-carousel": "~1.5.5",
     "fontawesome": "~4.3.0",
     "web-audio-editor": "git://github.com/janmyler/web-audio-editor.git",
-    "moment": "~2.10.3"
+    "moment": "~2.10.3",
+    "underscore": "~1.8.3"
   },
   "overrides": {
     "slick-carousel": {
