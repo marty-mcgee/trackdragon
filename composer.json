@@ -1,5 +1,5 @@
 {
-	"name": "companyjuice/trackdragon",
+	"name": "martymcgee/trackdragon",
 	"type": "project",
 	"homepage": "http://trackdragon.com/",
 	"description": "TrackDragon Web Audio Multitrack Editor on WordPress Bedrock v0.3.0",
@@ -44,8 +44,6 @@
 		"johnpbloch/wordpress": "4.2.2",
 
 		"wpackagist-plugin/advanced-custom-fields": "4.4.2",
-		"wpackagist-plugin/akismet": "3.1.1",
-		"wpackagist-plugin/captcha": "4.1.2",
 		"wpackagist-plugin/posts-to-posts": "1.6.4",
 		
 		"wpackagist-theme/hueman": "1.5.6",
