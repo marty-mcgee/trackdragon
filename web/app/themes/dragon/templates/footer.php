@@ -20,17 +20,5 @@
       <i class="glyphicon glyphicon-forward"></i>
       <i class="glyphicon glyphicon-fast-forward"></i>
     </nav>*/ ?>
-
-    <div class="btn-toolbar" id="playback-controls">
-      <input type="text" id="time-display" value="-:--:--.---">
-      <!--<button class="btn" id="fast-backward" title="fast-backward"><i class="fa fa-fast-backward"></i></button>
-      <button class="btn" id="backward" title="backward"><i class="fa fa-backward"></i></button>-->
-      <button class="btn" id="stop" title="stop"><i class="fa fa-stop"></i></button>
-      <button class="btn" id="play" title="play"><i class="fa fa-play"></i></button>
-      <!--<button class="btn" id="forward" title="forward"><i class="fa fa-forward"></i></button>
-      <button class="btn" id="fast-forward" title="fast-forward"><i class="fa fa-fast-forward"></i></button>-->
-      <button class="btn" id="follow" title="toggle follow"><i class="fa fa-eye"></i><i class="fa fa-eye-close"></i></button>
-    </div>
-
   </div>
 </footer>

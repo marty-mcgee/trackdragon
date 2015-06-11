@@ -15,7 +15,10 @@
     "moment": "~2.10.3",
     "underscore": "~1.8.3",
     "backbone": "~1.2.1",
-    "requirejs": "~2.1.18"
+    "requirejs": "~2.1.18",
+    "js-html5-audio-recorder": "*",
+    "js-html5-video-recorder": "*",
+    "js-html5-av-recorder": "*"
   },
   "overrides": {
     "slick-carousel": {

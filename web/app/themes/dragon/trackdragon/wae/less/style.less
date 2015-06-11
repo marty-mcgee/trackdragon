@@ -1,0 +1,405 @@
+/**
+ * Primary CSS for TrackDragon Project
+ *
+ */
+/*@import "bootstrap/bootstrap.less";*/
+
+// variables
+@trackHeight:     140px;
+@infoWidth:       @trackHeight;
+@infoHeight:      @trackHeight;
+@timelineHeight:  40px;
+@menubarHeight:   40px;
+@editorOffset:    80px;
+@green:           #80bd01;
+@gray:            #333333;
+@grayDark:        #222222;
+@grayDarker:      #111111;
+@grayLight:       #555555;
+@grayLighter:     #777777;
+@zindexModal:     999;
+@zindexTooltip:   999;
+
+// styles for the top navbar
+.navbar-inner {
+  //height: 40px;
+
+  .container-fluid {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  #project-name {
+    .name-content {
+      //.navbar .brand;   // inherit styles from bootstrap
+      margin-bottom: 0;
+      padding-top: 10px;
+      padding-right: 15px;
+      padding-left: 15px;
+      border: 0px solid white;
+    }
+
+    .name-input {
+      margin: 5px 0 7px 0;
+      width: 130px;
+      padding-left: 10px;      
+    }
+  }
+
+  #playback-controls {
+    width: 320px;
+    min-width: 320px;
+    margin: 0 0 0 0;
+    //.noTextSelection;
+
+    .playing {
+      //.buttonBackground(lighten(@green, 30%), lighten(@green, 15%));
+      background: hsla(0, 0%, 60%, 0.6);
+    }
+
+    #time-display {
+      width: 138px;
+      text-align: right;
+      margin: 0px 0px 0 0;
+      font-size: 23px !important;
+      color: #ccc !important;
+      background: hsla(0, 0%, 0%, 0.6);
+      cursor: default;
+      //.noTextSelection;
+    }
+
+    #follow {
+      .icon-eye-close {
+        display: block;
+      }
+      .icon-eye-open {
+        display: none;
+      }
+    }      
+
+    #follow.following {
+      .icon-eye-close {
+        display: none;
+      }
+      .icon-eye-open {
+        display: block;
+      }
+    }
+
+    // time-display and stop button right margin
+    :nth-child(3) {
+      margin-left: 6px;
+    }
+  }
+}
+
+// styles for the main editor view
+#editor-view { 
+  position: relative;
+  overflow: scroll;
+  margin-top: 0; //@timelineHeight;
+  background-color: #111;
+  //.noTextSelection;
+
+  .inner {
+    padding: 0;
+  }
+  
+  #time-line {
+    width: 100%;
+    height: @timelineHeight;
+    margin-left: @infoWidth;
+    position: fixed;
+    top: @editorOffset;
+    background-color: #333;
+    color: #fff;
+    z-index: 500;
+    overflow: hidden;
+  }
+
+  .track {
+    height: @trackHeight;
+    position: relative;
+
+    .track-info {
+      width: @infoWidth;
+      overflow: hidden;
+      background-color: #444;
+      position: relative;
+      float: left;
+      z-index: 550;
+    }
+
+    .track-name, .track-controls {
+      width: @infoWidth;
+      overflow: hidden;
+    }
+
+    .track-name {
+      .name-content {
+        margin-bottom: 0;
+        padding: 6px 4px;
+      }
+
+      .name-input {
+        margin: 2px 0 2px 1px;
+        border: none;
+        background: transparent;
+        box-shadow: none;  
+        font-style: italic;      
+      }
+    }
+
+    .track-controls {
+      height: 90px;
+
+      .volume {
+        width: 100px;
+        margin: 5px;
+      }
+
+      .btn {
+        margin: 10px 0 6px 10px;
+        padding: 4px 10px;
+      }
+    }  
+
+    .track-display {
+      height: @trackHeight;
+      margin-left: @infoWidth;
+      position: relative;      
+      background-color: #999;
+
+      .display-wrapper {
+        height: @trackHeight - 40;
+        position: absolute;
+        top: 20px;
+        background-color: hsla(0, 0, 20%, 0.2);
+        z-index: 200;
+
+        canvas {
+          float: left;          
+        }
+      }
+
+      // changes the cursor when the clip is moving
+      .ui-draggable-dragging, .ui-resizable-resizing {
+        z-index: 500;
+        .clip-display {
+          background: hsla(0, 0%, 60%, 0.6);
+        }        
+      }
+      .ui-draggable-dragging {
+        .name-content {
+          cursor: move !important;
+        }
+      }
+
+      .clip {
+        height: @trackHeight;
+        position: absolute;
+        overflow: hidden;
+
+        
+        .clip-name {
+          border: 1px solid @grayDark;
+
+          .name-content {
+            height: 16px;
+            overflow: hidden;
+            margin-bottom: 0;
+            padding: 0 2px 2px; 
+            white-space: nowrap;  
+            cursor: default;         
+          }
+          .edit {
+            height: 18px;
+          }
+          .name-input {
+            margin: -4px 0 0 1px;         
+            padding: 0;
+            border: none;
+            background: transparent;
+            box-shadow: none;
+            font-style: italic;
+          }
+        }
+
+        .ui-resizable-handle {
+          width: 5px;
+          height: 20px;
+          position: absolute;
+          top: 0;
+          z-index: 500;
+        }
+
+        .ui-resizable-handle:hover {
+          background: rgba(255, 200, 0, 1.0);
+        }
+
+        .ui-resizable-w {
+          left: 0;
+          cursor: w-resize;
+        }
+
+        .ui-resizable-e {
+          right: 0;
+          cursor: e-resize;
+        }
+
+        .clip-display {
+          height: 100px;
+          border-left: 1px solid @grayLight;
+          border-right: 1px solid @grayLight;
+
+          canvas {
+            float: left;
+            margin-left: -1px;
+          }
+        }
+      }
+    }
+  }
+  
+  .active .track-display {
+    background-color: #111;
+  }
+
+  #playback-position {
+    width: 1px;
+    position: absolute;
+    top: 0px;
+    background-color: red;
+    z-index: 500;
+  }
+}
+
+// styles for the submenu bar
+.menubar {
+  width: 100%;
+  height: @menubarHeight;
+  //#gradient.vertical(#f5f5f5, #eee);
+  border-top: 0px dashed #111;
+  border-bottom: 1px dashed #111;
+  
+  .nav {
+    margin-bottom: 0;
+  }
+  .nav > li > a {
+    margin: 0;
+    padding-top:    11px;
+    padding-bottom: 11px;
+    border-left: 0px solid #f5f5f5;
+    border-right: 0px solid #e5e5e5;
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+  }
+  .nav > .active > a,
+  .nav > .active > a:hover {
+    padding-left: 13px;
+    color: #777;
+    background-color: #555;
+  border-right-color: #ddd;
+    border-left: 0;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.05);
+       -moz-box-shadow: inset 0 3px 5px rgba(0,0,0,.05);
+            box-shadow: inset 0 3px 5px rgba(0,0,0,.05);
+  }
+  .nav > .active > a .caret,
+  .nav > .active > a:hover .caret {
+    border-top-color: #777;
+  }
+
+  .nav > li:last-child > a {
+    border-right: 0;
+  }
+
+  .dropdown-menu {
+    -webkit-border-radius: 0 0 4px 4px;
+       -moz-border-radius: 0 0 4px 4px;
+            border-radius: 0 0 4px 4px;
+  }
+  .shortcut {
+    float: right;
+    font-size: 0.85em;
+  }  
+}
+//@media (min-width: 980px) {
+@media (min-width: 480px) {
+  .menubar-fixed {
+    position: fixed;
+    top: 40px;
+    left: 0;
+    right: 0;
+    z-index: @zindexTooltip;
+  }
+}
+// styles for the editable name views
+.editing .display, .edit {
+  display: none;
+}
+.editing .edit {
+  display: block;
+}
+
+
+// styles for context menu
+.context-menu {
+  z-index: @zindexModal;
+  min-width: 0;
+  width: 150px;
+  display: block;
+
+  span.cm-color {
+    display: block;
+    width: 20px;
+    height: 20px;
+    float: left;
+    padding: 0;
+    margin: 5px;
+    cursor: pointer;
+  }
+
+  span.cm-color:hover {
+
+  }
+}
+
+#app-frame { margin-top: 0px; padding-left: 0; padding-right: 0; }
+.row-fluid .inner { padding: 10px; }
+/* Let's get this party started */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px @grayDarker; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: @grayLight; 
+  -webkit-box-shadow: inset 0 0 6px @grayLighter; 
+}
+
+::-webkit-scrollbar-corner {
+  background: @gray;
+}
+
+// ninja logo 
+.ninja-logo {
+  position: absolute;
+  bottom: 90px;
+  right: 30px;
+  border-radius: 100px;
+}
+
+
+
+
+

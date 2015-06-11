@@ -33,7 +33,8 @@
     "wae.css": {
       "files": [
         "styles/wae.less"
-      ]
+      ],
+      "main": true
     }
   },
   "config": {

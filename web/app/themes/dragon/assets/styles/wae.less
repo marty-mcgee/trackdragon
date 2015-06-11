@@ -1,41 +1,16 @@
-/*@import "bootstrap/bootstrap.less";*/
-
-/*.navbar-fixed-top {
-  margin-top: 60px !important;
-}*/
-//
-/* google fonts
-@font-face {
-  font-family: 'Cookie';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Cookie-Regular'), url('../Cookie.woff') format('woff');
-}
-*/
 /**
- * Primary CSS for TrackDrgon Project
+ * Primary CSS for TrackDragon Project
  *
- * @file        style.less
- * @author      Jan Myler <honza.myler[at]gmail.com>
- * @copyright   Copyright 2012, Jan Myler (http://janmyler.com)
- * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
  */
-
-/* body padding removal
-body {
-  padding: 0;
-}*/
+/*@import "bootstrap/bootstrap.less";*/
 
 // variables
 @trackHeight:     140px;
 @infoWidth:       @trackHeight;
 @infoHeight:      @trackHeight;
-@timelineHeight:  30px;
+@timelineHeight:  40px;
 @menubarHeight:   40px;
-@editorOffset:    90px;
+@editorOffset:    80px;
 @green:           #80bd01;
 @gray:            #333333;
 @grayDark:        #222222;
@@ -46,32 +21,22 @@ body {
 @zindexTooltip:   999;
 
 // styles for the top navbar
-.navbar {
+.navbar-inner {
   //height: 40px;
-  
-  .navbar-inner {
-    //height: 40px;
-  }
 
   .container-fluid {
-    /*padding-left: 10px;*/
-  }
-  
-  .app-name {
-    position: absolute;
-    top: 40px;
-    right: 10px;
-    padding-top: 10px;
-    color: #80bd01;
-    font-size: 16px;
-    //text-shadow: 0 2px 4px @black;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }
 
   #project-name {
     .name-content {
       //.navbar .brand;   // inherit styles from bootstrap
       margin-bottom: 0;
-      padding-top: 60px;
+      padding-top: 10px;
+      padding-right: 15px;
+      padding-left: 15px;
+      border: 0px solid white;
     }
 
     .name-input {
@@ -82,10 +47,12 @@ body {
   }
 
   #playback-controls {
-    width: 320px;
-    min-width: 320px;
+    width: 140px;
+    min-width: 140px;
     margin: 0 0 0 0;
+    padding: 0 0 2px 0;
     //.noTextSelection;
+    background: #000;
 
     .playing {
       //.buttonBackground(lighten(@green, 30%), lighten(@green, 15%));
@@ -93,12 +60,16 @@ body {
     }
 
     #time-display {
-      width: 160px;
+      width: 138px;
       text-align: right;
-      margin: 0px 0px 0 0;
-      font-size: 28px !important;
+      margin: 0px 0px 2px 0;
+      font-size: 24px !important;
+      color: #ccc !important;
+      background: hsla(0, 0%, 0%, 0.6);
       cursor: default;
       //.noTextSelection;
+      border: 1px solid #000;
+      padding-right: 4px;
     }
 
     #follow {
@@ -121,7 +92,7 @@ body {
 
     // time-display and stop button right margin
     :nth-child(3) {
-      margin-left: 6px;
+      margin-left: 3px;
     }
   }
 }
@@ -130,7 +101,7 @@ body {
 #editor-view { 
   position: relative;
   overflow: scroll;
-  margin-top: @timelineHeight;
+  margin-top: 0; //@timelineHeight;
   background-color: #111;
   //.noTextSelection;
 
@@ -155,7 +126,11 @@ body {
     position: relative;
 
     .track-info {
-      width: @infoWidth;
+      width: @infoWidth - 0px;
+      border-left: 1px solid #000;
+      border-right: 1px solid #000;
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
       overflow: hidden;
       background-color: #444;
       position: relative;
@@ -184,10 +159,10 @@ body {
     }
 
     .track-controls {
-      height: 90px;
+      height: @trackHeight - 34px;
 
       .volume {
-        width: 100px;
+        width: @trackHeight - 12px;
         margin: 5px;
       }
 
@@ -201,12 +176,14 @@ body {
       height: @trackHeight;
       margin-left: @infoWidth;
       position: relative;      
-      background-color: #999;
+      background-color: #111;
+      border-bottom: 1px solid #000;
 
       .display-wrapper {
         height: @trackHeight - 40;
         position: absolute;
         top: 20px;
+        left: 0px;
         background-color: hsla(0, 0, 20%, 0.2);
         z-index: 200;
 
@@ -229,7 +206,7 @@ body {
       }
 
       .clip {
-        height: @trackHeight;
+        height: @trackHeight - 1px;
         position: absolute;
         overflow: hidden;
 
@@ -238,10 +215,10 @@ body {
           border: 1px solid @grayDark;
 
           .name-content {
-            height: 16px;
+            height: 14px;
             overflow: hidden;
             margin-bottom: 0;
-            padding: 0 2px 2px; 
+            padding: 0 2px 0px; 
             white-space: nowrap;  
             cursor: default;         
           }
@@ -267,7 +244,7 @@ body {
         }
 
         .ui-resizable-handle:hover {
-          background: rgba(255, 200, 0, 1.0);
+          background: rgba(200, 200, 0, 1.0);
         }
 
         .ui-resizable-w {
@@ -281,7 +258,7 @@ body {
         }
 
         .clip-display {
-          height: 100px;
+          height: @trackHeight - 20px;
           border-left: 1px solid @grayLight;
           border-right: 1px solid @grayLight;
 
@@ -309,47 +286,47 @@ body {
 
 // styles for the submenu bar
 .menubar {
-	width: 100%;
-	height: @menubarHeight;
-	//#gradient.vertical(#f5f5f5, #eee);
-	border-top: 1px dashed #111;
+  width: 100%;
+  height: @menubarHeight;
+  //#gradient.vertical(#f5f5f5, #eee);
+  border-top: 0px dashed #111;
   border-bottom: 1px dashed #111;
   
   .nav {
-  	margin-bottom: 0;
+    margin-bottom: 0;
   }
   .nav > li > a {
-  	margin: 0;
-  	padding-top:    11px;
-  	padding-bottom: 11px;
-  	border-left: 0px solid #f5f5f5;
-  	border-right: 0px solid #e5e5e5;
-  	-webkit-border-radius: 0;
-  	   -moz-border-radius: 0;
-  	        border-radius: 0;
+    margin: 0;
+    padding-top:    11px;
+    padding-bottom: 11px;
+    border-left: 0px solid #f5f5f5;
+    border-right: 0px solid #e5e5e5;
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
   }
   .nav > .active > a,
   .nav > .active > a:hover {
-  	padding-left: 13px;
-  	color: #777;
-  	background-color: #555;
-	border-right-color: #ddd;
-  	border-left: 0;
-  	-webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.05);
+    padding-left: 13px;
+    color: #777;
+    background-color: #555;
+  border-right-color: #ddd;
+    border-left: 0;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.05);
        -moz-box-shadow: inset 0 3px 5px rgba(0,0,0,.05);
             box-shadow: inset 0 3px 5px rgba(0,0,0,.05);
   }
   .nav > .active > a .caret,
   .nav > .active > a:hover .caret {
-   	border-top-color: #777;
+    border-top-color: #777;
   }
 
   .nav > li:last-child > a {
-  	border-right: 0;
+    border-right: 0;
   }
 
   .dropdown-menu {
-  	-webkit-border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
        -moz-border-radius: 0 0 4px 4px;
             border-radius: 0 0 4px 4px;
   }
@@ -360,13 +337,13 @@ body {
 }
 //@media (min-width: 980px) {
 @media (min-width: 480px) {
-	.menubar-fixed {
-		position: fixed;
-		top: 40px;
-		left: 0;
-		right: 0;
-		z-index: @zindexTooltip;
-	}
+  .menubar-fixed {
+    position: fixed;
+    top: 40px;
+    left: 0;
+    right: 0;
+    z-index: @zindexTooltip;
+  }
 }
 // styles for the editable name views
 .editing .display, .edit {
@@ -431,8 +408,4 @@ body {
   right: 30px;
   border-radius: 100px;
 }
-
-
-
-
 

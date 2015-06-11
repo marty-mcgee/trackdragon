@@ -2,7 +2,7 @@
 	"name": "martymcgee/trackdragon",
 	"type": "project",
 	"homepage": "http://trackdragon.com/",
-	"description": "TrackDragon Web Audio Multitrack Editor on WordPress Bedrock v0.3.0",
+	"description": "TrackDragon Web Audio Multitrack Editor on WordPress Bedrock",
 	"authors": [
 		{
 			"name": "Marty McGee",

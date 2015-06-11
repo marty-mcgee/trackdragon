@@ -33,3 +33,8 @@ node_modules
 # Vagrant
 bin
 .vagrant
+
+# Windows, Mac OS
+desktop.ini
+.ds_store
+__macosx

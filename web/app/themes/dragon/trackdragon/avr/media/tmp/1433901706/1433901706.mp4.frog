@@ -1,0 +1,52 @@
+ffmpeg version N-72776-g7c9fcdf Copyright (c) 2000-2015 the FFmpeg developers
+  built with gcc 4.9.2 (GCC)
+  configuration: --enable-gpl --enable-version3 --disable-w32threads --enable-avisynth --enable-bzlib --enable-fontconfig --enable-frei0r --enable-gnutls --enable-iconv --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libdcadec --enable-libfreetype --enable-libgme --enable-libgsm --enable-libilbc --enable-libmodplug --enable-libmfx --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libopus --enable-librtmp --enable-libschroedinger --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvo-aacenc --enable-libvo-amrwbenc --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxavs --enable-libxvid --enable-lzma --enable-decklink --enable-zlib
+  libavutil      54. 27.100 / 54. 27.100
+  libavcodec     56. 41.100 / 56. 41.100
+  libavformat    56. 36.100 / 56. 36.100
+  libavdevice    56.  4.100 / 56.  4.100
+  libavfilter     5. 16.101 /  5. 16.101
+  libswscale      3.  1.101 /  3.  1.101
+  libswresample   1.  2.100 /  1.  2.100
+  libpostproc    53.  3.100 / 53.  3.100
+Input #0, matroska,webm, from 'C:/webroot/trackdragon/bedrock/web/app/themes/dragon/avr/media/tmp/1433901706/1433901706.webm':
+  Metadata:
+    encoder         : whammy
+  Duration: 00:00:05.62, start: 0.000000, bitrate: 3164 kb/s
+    Stream #0:0: Video: vp8, yuv420p, 640x480, SAR 1:1 DAR 4:3, 14.58 tbr, 1k tbn, 1k tbc (default)
+Guessed Channel Layout for  Input Stream #1.0 : stereo
+Input #1, wav, from 'C:/webroot/trackdragon/bedrock/web/app/themes/dragon/avr/media/tmp/1433901706/1433901706.wav':
+  Duration: 00:00:05.57, bitrate: 1411 kb/s
+    Stream #1:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, 2 channels, s16, 1411 kb/s
+[libx264 @ 00000000033c3320] using SAR=1/1
+[libx264 @ 00000000033c3320] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX
+[libx264 @ 00000000033c3320] profile High, level 2.2
+[libx264 @ 00000000033c3320] 264 - core 146 r2538 121396c - H.264/MPEG-4 AVC codec - Copyleft 2003-2015 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=6 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=14 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=23.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to 'C:/webroot/trackdragon/bedrock/web/app/themes/dragon/avr/media/tmp/1433901706/1433901706.mp4':
+  Metadata:
+    encoder         : Lavf56.36.100
+    Stream #0:0: Video: h264 (libx264) ([33][0][0][0] / 0x0021), yuv420p, 640x480 [SAR 1:1 DAR 4:3], q=-1--1, 14.58 fps, 11200 tbn, 14.58 tbc (default)
+    Metadata:
+      encoder         : Lavc56.41.100 libx264
+    Stream #0:1: Audio: aac (libvo_aacenc) ([64][0][0][0] / 0x0040), 44100 Hz, stereo, s16, 128 kb/s
+    Metadata:
+      encoder         : Lavc56.41.100 libvo_aacenc
+Stream mapping:
+  Stream #0:0 -> #0:0 (vp8 (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (pcm_s16le (native) -> aac (libvo_aacenc))
+Press [q] to stop, [?] for help
+frame=   61 fps=0.0 q=27.0 size=      36kB time=00:00:00.61 bitrate= 484.3kbits/s dup=30 drop=0    frame=   81 fps= 81 q=27.0 size=     116kB time=00:00:04.25 bitrate= 223.9kbits/s dup=40 drop=0    frame=   81 fps= 33 q=-1.0 Lsize=     323kB time=00:00:05.58 bitrate= 474.0kbits/s dup=40 drop=0    
+video:232kB audio:88kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 1.037339%
+[libx264 @ 00000000033c3320] frame I:2     Avg QP:18.42  size:  9847
+[libx264 @ 00000000033c3320] frame P:79    Avg QP:19.50  size:  2745
+[libx264 @ 00000000033c3320] mb I  I16..4:  7.9% 87.1%  5.0%
+[libx264 @ 00000000033c3320] mb P  I16..4:  0.6%  3.2%  0.0%  P16..4: 36.7%  6.1%  3.7%  0.0%  0.0%    skip:49.7%
+[libx264 @ 00000000033c3320] 8x8 transform intra:84.5% inter:83.2%
+[libx264 @ 00000000033c3320] coded y,uvDC,uvAC intra: 60.5% 72.0% 28.2% inter: 18.9% 29.4% 0.1%
+[libx264 @ 00000000033c3320] i16 v,h,dc,p: 41% 12% 28% 19%
+[libx264 @ 00000000033c3320] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 20% 11% 41%  4%  5%  5%  5%  5%  4%
+[libx264 @ 00000000033c3320] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 36% 17% 18%  6%  7%  6%  5%  3%  2%
+[libx264 @ 00000000033c3320] i8c dc,h,v,p: 64% 15% 20%  1%
+[libx264 @ 00000000033c3320] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 00000000033c3320] ref P L0: 57.7%  3.7% 10.5% 28.2%
+[libx264 @ 00000000033c3320] kb/s:340.75

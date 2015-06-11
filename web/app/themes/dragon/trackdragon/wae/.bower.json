@@ -1,0 +1,13 @@
+{
+  "name": "web-audio-editor",
+  "homepage": "https://github.com/janmyler/web-audio-editor",
+  "_release": "c564114f65",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "c564114f6521f3c4552e886cf3e6d6f88e40ae4b"
+  },
+  "_source": "git://github.com/janmyler/web-audio-editor.git",
+  "_target": "*",
+  "_originalSource": "git://github.com/janmyler/web-audio-editor.git"
+}

@@ -39,6 +39,13 @@
       init: function() {
         // JavaScript to be fired on the about us page
       }
+    },
+    // Project page (this doesn't work yet -- testing)
+    'project_huggybear': {
+      init: function() {
+        // JavaScript to be fired on the project_huggybear page
+        //alert("HEY HEY HEY");
+      }
     }
   };
 

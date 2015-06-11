@@ -68,20 +68,24 @@ function asset_path($filename) {
 function assets() {
   
   /* CUSTOM CODE */
-  //wp_enqueue_script('require_js', asset_path('../assets/scripts/require/require.js'));
-  wp_enqueue_script('require_js', '//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js', [], null, false);
-  $app_base = '/app/themes/dragon/bower_components/web-audio-editor/js';
-  wp_localize_script( 'require_js', 'require', array(
-      'baseUrl' => $app_base,
-      'deps'    => array( $app_base . '/main.js')
-  ));
+  if (is_page('project-huggybear')){
+    //wp_enqueue_script('require_js', asset_path('../assets/scripts/require/require.js'));
+    wp_enqueue_script('require_js', '//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js', [], null, false);
+    $app_base = '/app/themes/dragon/trackdragon/wae/js';
+    wp_localize_script( 'require_js', 'require', array(
+        'baseUrl' => $app_base,
+        'deps'    => array( $app_base . '/main.js')
+    ));
+  }
   /* END CUSTOM CODE */
 
   wp_enqueue_style('sage_css', asset_path('styles/main.css'), false, null);
   
   /* CUSTOM CODE */
   wp_enqueue_style('dragon_css', asset_path('styles/dragon.css'), false, null);
-  wp_enqueue_style('wae_css', asset_path('styles/wae.css'), false, null);
+  if (is_page('project-huggybear')){
+    wp_enqueue_style('wae_css', asset_path('styles/wae.css'), false, null);
+  }
   /* END CUSTOM CODE */
 
   if (is_single() && comments_open() && get_option('thread_comments')) {

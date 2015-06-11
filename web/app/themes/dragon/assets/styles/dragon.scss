@@ -8,13 +8,13 @@ header {
 }
 header.banner {
 	background: #333;
-	border: 0px solid #000;
+	border: 1px solid #000;
 }
 .navbar {
   position: relative;
   min-height: 40px;
   margin-bottom: 0px;
-  border: 0px solid #000;
+  border: 1px solid #000;
 }
 #logo {
 	float: left;
@@ -41,8 +41,14 @@ header.banner nav .nav > li > a {
 header.banner nav .nav > li > a:focus, 
 header.banner nav .nav > li > a:hover {
   text-decoration: underline;
-  background-color: #555;
   color: #80bd01;
+  background-color: #555;
+}
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:focus, 
+.navbar-default .navbar-nav>.active>a:hover {
+  color: #80bd01;
+  background-color: #222;
 }
 header.banner nav .nav > li > a:active {
   text-decoration: underline;
@@ -82,7 +88,7 @@ body {
 }
 body .wrap {
   /* Margin top by header height */
-  padding-top: 10px;
+  padding-top: 40px; 
 }
 header.banner {
   position: fixed;
