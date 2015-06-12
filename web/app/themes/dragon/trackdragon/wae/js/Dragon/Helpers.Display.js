@@ -121,7 +121,7 @@ define([
             if (audioBuffer.numberOfChannels > 1)
                 ch2 = audioBuffer.getChannelData(1);
             
-            ctx.fillStyle = 'red';
+            ctx.fillStyle = '#80bd01';
             ctx.beginPath();
             ctx.moveTo(posX, mid);
             
@@ -178,7 +178,7 @@ define([
                 editorScroll = Dragon.Views.Editor.el.scrollLeft();
 
             Dragon.Views.PlaybackControls.updateTime(this.px2sec(position));
-            position += 120;  // track controls width
+            position += 140;  // track controls width
 
             $cursor.height(tracksCount * trackHeight)
                    .css('left', position + 'px')

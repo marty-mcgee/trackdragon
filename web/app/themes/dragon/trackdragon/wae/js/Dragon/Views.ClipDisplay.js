@@ -39,7 +39,7 @@ define([
             var clipWidth = totalWidth,
                 maxWidth  = 20000,
                 width     = 0,
-                height    = 100,
+                height    = 120,
                 offset    = Dragon.Display.sec2px(this.model.get('startTime'));
                 $el       = $(this.el);
 

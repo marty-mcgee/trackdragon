@@ -68,7 +68,7 @@ define([
                 i, t, min, sec, millisec;
 
             // prepare the context
-            ctx.fillStyle = '#444';
+            ctx.fillStyle = '#ccc';
             ctx.font="0.8em sans-serif";
             ctx.clearRect(0, 0, width, height);
 
