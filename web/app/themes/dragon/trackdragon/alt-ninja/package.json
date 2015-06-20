@@ -1,0 +1,41 @@
+{
+  "name": "alt-ninja",
+  "version": "0.0.1",
+  "description": "Flux chat application; use of Dispatcher.waitFor().",
+  "repository": "https://github.com/martymcgee/alt-ninja",
+  "license": "MIT",
+  "main": "src/js/app.js",
+  "dependencies": {
+    "alt": "^0.16.10",
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "babel-jest": "^4.0.0",
+    "babelify": "^5.0.3",
+    "browserify": "~4.2.2",
+    "envify": "^3.2.0",
+    "jest-cli": "^0.4.13",
+    "uglify-js": "~2.4.15"
+  },
+  "scripts": {
+    "build": "browserify . | uglifyjs -cm > dist/js/alt-ninja.min.js",
+    "test": "jest"
+  },
+  "authors": [
+    "Marty McGee <marty@companyjuice.com>"
+  ],
+  "browserify": {
+    "transform": [
+      "babelify",
+      "envify"
+    ]
+  },
+  "jest": {
+    "scriptPreprocessor": "../node_modules/babel-jest",
+    "unmockedModulePathPatterns": [
+      "../node_modules/alt",
+      "alt.js"
+    ],
+    "rootDir": "./src/js"
+  }
+}
