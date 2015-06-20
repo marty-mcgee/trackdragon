@@ -17,7 +17,7 @@ class ThreadStore {
     this.currentID = threadID
     this.threads[this.currentID].lastMessage.isRead = true
   }
-
+*/
   onReceiveAll(rawMessages) {
     this._init(rawMessages)
   }
@@ -32,7 +32,7 @@ class ThreadStore {
       this.threads[threadID] = {
         id: threadID,
         name: message.threadName,
-        lastMessage: ChatMessageUtils.convertRawMessage(message, this.currentID)
+        lastMessage: message /*ChatMessageUtils.convertRawMessage(message, this.currentID)*/
       }
     })
 
@@ -43,7 +43,7 @@ class ThreadStore {
 
     this.threads[this.currentID].lastMessage.isRead = true
   }
-
+/*
   static get(id) {
     return this.getState().threads[id]
   }
@@ -60,11 +60,11 @@ class ThreadStore {
       orderedThreads.push(thread)
     }
     orderedThreads.sort((a, b) => {
-      /*if (a.lastMessage.date < b.lastMessage.date) {
+      if (a.lastMessage.date < b.lastMessage.date) {
         return -1
       } else if (a.lastMessage.date > b.lastMessage.date) {
         return 1
-      }*/
+      }
       return 0
     })
     return orderedThreads
