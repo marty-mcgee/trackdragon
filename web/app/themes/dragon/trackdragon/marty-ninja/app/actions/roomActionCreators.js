@@ -7,14 +7,14 @@ class RoomActionCreators extends Marty.ActionCreators {
   createRoom(name) {
     var room = RoomUtils.createRoom(name);
 
-    this.dispatch(RoomConstants.RECIEVE_ROOMS, room);
+    this.dispatch(RoomConstants.RECEIVE_ROOMS, room);
 
     this.app.roomsAPI.createRoom(room).then(res => {
       this.dispatch(RoomConstants.UPDATE_ROOM, room.cid, res.body);
     });
   }
-  recieveRooms(rooms) {
-    this.dispatch(RoomConstants.RECIEVE_ROOMS, rooms);
+  receiveRooms(rooms) {
+    this.dispatch(RoomConstants.RECEIVE_ROOMS, rooms);
   }
 }
 

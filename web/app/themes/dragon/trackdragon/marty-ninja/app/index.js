@@ -9,6 +9,7 @@ window.Marty = Marty; // For Marty Developer Tools
 Marty.HttpStateSource.removeHook('parseJSON');
 
 if (process.env.NODE_ENV !== 'test') {
+  
   var app = new Application();
 
   app.rehydrate();
@@ -24,4 +25,5 @@ if (process.env.NODE_ENV !== 'test') {
       </ApplicationContainer>
     ), document.getElementById('app'));
   });
+  
 }

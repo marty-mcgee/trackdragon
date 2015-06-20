@@ -3,13 +3,16 @@ body {
 	color: #cccccc;
 }
 
-.rooms, .messages {
+.rooms, 
+.messages,
+.projects {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
-.rooms .room, .messages .message {
-  margin: 20px 0;
+.rooms .room, 
+.messages .message,
+.projects .project {
+  margin: 10px 0;
 }
-

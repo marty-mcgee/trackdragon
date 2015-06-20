@@ -8,6 +8,18 @@ class NavigationActionCreators extends Marty.ActionCreators {
   navigateToRoom(id) {
     navigateTo('room', { id: id });
   }
+  navigateToProject(id) {
+    navigateTo('project', { id: id });
+  }/*
+  navigateToTrack(id) {
+    navigateTo('track', { id: id });
+  }
+  navigateToClip(id) {
+    navigateTo('clip', { id: id });
+  }
+  navigateToMedium(id) {
+    navigateTo('medium', { id: id });
+  }*/
 }
 
 function navigateTo(route, params) {

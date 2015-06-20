@@ -7,7 +7,7 @@ var MessageConstants = require('../constants/messageConstants');
 class MessageQueries extends Marty.Queries {
   getMessagesForRoom(roomId) {
     return this.app.messagesAPI.getMessagesForRoom(roomId).then(messages => {
-      this.dispatch(MessageConstants.RECIEVE_MESSAGES, roomId, messages);
+      this.dispatch(MessageConstants.RECEIVE_MESSAGES, roomId, messages);
     });
   }
 }

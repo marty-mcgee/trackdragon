@@ -10,7 +10,7 @@ class RoomStore extends Marty.Store {
     this.state = {};
     this.handlers = {
       updateRoom: RoomConstants.UPDATE_ROOM,
-      addRooms: RoomConstants.RECIEVE_ROOMS
+      addRooms: RoomConstants.RECEIVE_ROOMS
     };
   }
   getAll() {
@@ -22,7 +22,11 @@ class RoomStore extends Marty.Store {
         }
       },
       remotely() {
+
+
         return this.app.roomQueries.getAllRooms();
+
+        
       }
     });
   }

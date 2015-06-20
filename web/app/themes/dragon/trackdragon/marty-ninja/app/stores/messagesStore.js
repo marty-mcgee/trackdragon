@@ -9,7 +9,7 @@ class MessagesStore extends Marty.Store {
     super(options);
     this.state = {};
     this.handlers = {
-      addMessages: MessageConstants.RECIEVE_MESSAGES,
+      addMessages: MessageConstants.RECEIVE_MESSAGES,
       updateMessage: MessageConstants.UPDATE_MESSAGE
     };
   }

@@ -18,6 +18,8 @@ function Rooms() {
 
   var emit = _.bind(this.emit, this);
 
+  // Room
+
   function createRoom(room) {
     _.defaults(room, {
       id: uuid(),
@@ -38,6 +40,12 @@ function Rooms() {
     }
   }
 
+  function getAllRooms() {
+    return _.values(db.get());
+  }
+
+  // Room . Messages
+
   function getRoomMessages(roomId) {
     var room = db.get(roomId);
 
@@ -46,10 +54,6 @@ function Rooms() {
     }
 
     return [];
-  }
-
-  function getAllRooms() {
-    return _.values(db.get());
   }
 
   function addMessage(roomId, message) {
@@ -69,6 +73,7 @@ function Rooms() {
       return message;
     }
   }
+  
 }
 
 util.inherits(Rooms, EventEmitter2);
