@@ -47,7 +47,7 @@ module.exports = React.createClass({
 
     return (
       <div className="weather-data">
-        <h3>Current Temp: {weather.main.temp}K, {weather.weather[0].description}</h3>
+        <h4>Current Temp: {weather.main.temp}K, {weather.weather[0].description}</h4>
         <button onClick={this._onClickShowRaw}>
           {showText}
         </button>
@@ -62,7 +62,7 @@ module.exports = React.createClass({
         <button className="pull-right" onClick={this.onClickDelete}>
           Close Room
         </button>
-        <h2>Room: {this.state.location}</h2>
+        <h3>Room Name: "{this.state.location}"</h3>
         {this.getWeatherContent()}
       </div>
     );
