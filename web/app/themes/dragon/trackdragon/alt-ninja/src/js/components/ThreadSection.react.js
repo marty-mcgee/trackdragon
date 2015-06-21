@@ -1,12 +1,10 @@
-// ThreadSection.react.js -||- component -||- alt
+// ThreadSection.react.js
 
 var React = require('react');
 var ThreadStore = require('../stores/ThreadStore');
 var ThreadListItem = require('../components/ThreadListItem.react');
-/*
 var MessageStore = require('../stores/MessageStore');
-var ThreadListItem = require('../components/ThreadListItem.react');
-var ThreadStore = require('../stores/ThreadStore');
+/*
 var UnreadThreadStore = require('../stores/UnreadThreadStore');
 var ListenerMixin = require('../../../../mixins/ListenerMixin');
 */

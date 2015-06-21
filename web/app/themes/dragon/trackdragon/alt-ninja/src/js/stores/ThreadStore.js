@@ -1,3 +1,5 @@
+// ThreadStore.js
+
 var alt = require('../alt')
 
 var ChatThreadActionCreators = require('../actions/ChatThreadActionCreators')

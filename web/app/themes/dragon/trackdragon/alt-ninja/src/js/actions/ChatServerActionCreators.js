@@ -1,3 +1,5 @@
+// ChatServerActionCreators.js
+
 var alt = require('../alt')
 
 class ChatServerActions {

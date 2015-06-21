@@ -1,3 +1,5 @@
+// ChatThreadActionCreators.js
+
 var alt = require('../alt')
 
 class ChatThreadActions {
