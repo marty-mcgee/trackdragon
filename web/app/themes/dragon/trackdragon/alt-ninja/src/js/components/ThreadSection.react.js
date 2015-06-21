@@ -2,6 +2,7 @@
 
 var React = require('react');
 var ThreadStore = require('../stores/ThreadStore');
+var ThreadListItem = require('../components/ThreadListItem.react');
 /*
 var MessageStore = require('../stores/MessageStore');
 var ThreadListItem = require('../components/ThreadListItem.react');
@@ -34,10 +35,10 @@ var ThreadSection = React.createClass({
     
     var threadListItems = this.state.threads.map(function(thread) {
       return (
-        <div>ThreadListItem
+        <ThreadListItem
           key={thread.id}
           thread={thread}
-          currentThreadID={this.state.currentThreadID} </div>
+          currentThreadID={this.state.currentThreadID} />
       );
     }, this);
     /*
@@ -52,11 +53,10 @@ var ThreadSection = React.createClass({
         </div>
         <ul className="thread-list">
           {threadListItems}
-          </ul>
+        </ul>
       </div>
     );
     */
-
     // TEMP PLACEHOLDER
     return (
       <div className="thread-section">
@@ -64,7 +64,6 @@ var ThreadSection = React.createClass({
           [unread]
         </div>
         <ul className="thread-list">
-          [threadListItems]
           {threadListItems}
         </ul>
       </div>

@@ -2,7 +2,7 @@ var alt = require('../alt')
 
 var ChatThreadActionCreators = require('../actions/ChatThreadActionCreators')
 var ChatServerActionCreators = require('../actions/ChatServerActionCreators')
-//var ChatMessageUtils = require('../utils/ChatMessageUtils')
+var ChatMessageUtils = require('../utils/ChatMessageUtils')
 
 class ThreadStore {
   constructor() {
@@ -12,12 +12,12 @@ class ThreadStore {
     this.currentID = null
     this.threads = {}
   }
-/*
+
   onClickThread(threadID) {
     this.currentID = threadID
     this.threads[this.currentID].lastMessage.isRead = true
   }
-*/
+
   onReceiveAll(rawMessages) {
     this._init(rawMessages)
   }
@@ -32,7 +32,7 @@ class ThreadStore {
       this.threads[threadID] = {
         id: threadID,
         name: message.threadName,
-        lastMessage: message /*ChatMessageUtils.convertRawMessage(message, this.currentID)*/
+        lastMessage: ChatMessageUtils.convertRawMessage(message, this.currentID) /* message (raw) */
       }
     })
 
@@ -43,7 +43,7 @@ class ThreadStore {
 
     this.threads[this.currentID].lastMessage.isRead = true
   }
-/*
+
   static get(id) {
     return this.getState().threads[id]
   }
@@ -51,7 +51,7 @@ class ThreadStore {
   static getAll() {
     return this.getState().threads
   }
-*/
+
   static getAllChrono() {
     var { threads } = this.getState()
     var orderedThreads = []
@@ -73,12 +73,11 @@ class ThreadStore {
   static getCurrentID() {
     return this.getState().currentID
   }
-/*
+
   static getCurrent() {
     var { threads, currentID } = this.getState()
     return threads[currentID]
   }
-*/
 }
 
 module.exports = alt.createStore(ThreadStore, 'ThreadStore')

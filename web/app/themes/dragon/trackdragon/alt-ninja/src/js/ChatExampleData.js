@@ -11,7 +11,7 @@ module.exports = {
         threadName: 'JuiceChat',
         authorName: 'Marty',
         text: 'Hey Patrick, want to give a Flux talk at JuiceChat?',
-        timestamp: Date.now()
+        timestamp: Date.now() -9000
       },
       {
         id: 'm_2',
@@ -19,7 +19,7 @@ module.exports = {
         threadName: 'JuiceChat',
         authorName: 'Linus',
         text: 'Seems like a pretty cool conference.',
-        timestamp: Date.now()
+        timestamp: Date.now() -8000
       },
       {
         id: 'm_3',
@@ -27,7 +27,7 @@ module.exports = {
         threadName: 'JuiceChat',
         authorName: 'Patrick',
         text: 'Sounds good.  Will they be serving dessert?',
-        timestamp: Date.now()
+        timestamp: Date.now() -7000
       },
       {
         id: 'm_4',
@@ -35,7 +35,7 @@ module.exports = {
         threadName: 'Sarah and Marty',
         authorName: 'Marty',
         text: 'Hey Sarah, want to grab a coffee after the conference?',
-        timestamp: Date.now()
+        timestamp: Date.now() -6000
       },
       {
         id: 'm_5',
@@ -43,7 +43,7 @@ module.exports = {
         threadName: 'Sarah and Marty',
         authorName: 'Sarah',
         text: 'Absolutely !! Meet you at the coffee house.',
-        timestamp: Date.now()
+        timestamp: Date.now() -5000
       },
       {
         id: 'm_6',
@@ -51,7 +51,7 @@ module.exports = {
         threadName: 'Functional Heads',
         authorName: 'Marty',
         text: 'Hey Socrates, are you going to be talking about functional stuff?',
-        timestamp: Date.now()
+        timestamp: Date.now() -1000
       },
       {
         id: 'm_7',
