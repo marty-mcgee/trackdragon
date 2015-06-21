@@ -1,6 +1,8 @@
 -||- TrackDragon -||-
 =====================
 
+[![Join the chat at https://gitter.im/martymcgee/trackdragon](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/martymcgee/trackdragon?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## Web Audio + Video Multi-track Editing + Recording on WordPress in the Company Juice Cloud
 
 * [html5 Web Audio API](http://webaudio.github.io/web-audio-api/)
