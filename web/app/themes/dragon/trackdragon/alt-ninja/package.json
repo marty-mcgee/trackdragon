@@ -1,6 +1,6 @@
 {
   "name": "dragon.ninja",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Flux alt react chat app; uses Dispatcher.waitFor();",
   "repository": "https://github.com/martymcgee/dragon.ninja",
   "license": "GPL-3.0+",
