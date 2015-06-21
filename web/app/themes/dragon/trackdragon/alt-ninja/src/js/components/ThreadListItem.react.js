@@ -1,6 +1,7 @@
 // ThreadListItem.react.js
 
 var ChatThreadActionCreators = require('../actions/ChatThreadActionCreators');
+
 var React = require('react');
 var cx = require('react/lib/cx');
 

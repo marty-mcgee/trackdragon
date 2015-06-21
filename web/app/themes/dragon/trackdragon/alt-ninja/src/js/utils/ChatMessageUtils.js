@@ -1,4 +1,5 @@
 // ChatMessageUtils.js
+
 module.exports = {
 
   convertRawMessage: function(rawMessage, currentThreadID) {

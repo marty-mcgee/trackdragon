@@ -1,12 +1,12 @@
 // MessageSection.react.js
 
-var React = require('react');
-
-//var MessageComposer = require('./MessageComposer.react');
+var MessageComposer = require('./MessageComposer.react');
 var MessageListItem = require('./MessageListItem.react');
 var MessageStore = require('../stores/MessageStore');
 var ThreadStore = require('../stores/ThreadStore');
-//var ListenerMixin = require('../../../../mixins/ListenerMixin');
+var ListenerMixin = require('../mixins/ListenerMixin');
+
+var React = require('react');
 
 function getStateFromStores() {
   return {
@@ -24,7 +24,8 @@ function getMessageListItem(message) {
 }
 
 var MessageSection = React.createClass({
-//  mixins: [ListenerMixin],
+  // use State Mixins
+  mixins: [ListenerMixin],
 
   getInitialState: function() {
     return getStateFromStores();
@@ -32,8 +33,8 @@ var MessageSection = React.createClass({
 
   componentDidMount: function() {
     this._scrollToBottom();
-//    this.listenTo(MessageStore, this._onChange);
-//    this.listenTo(ThreadStore, this._onChange);
+    this.listenTo(MessageStore, this._onChange);
+    this.listenTo(ThreadStore, this._onChange);
   },
 
   render: function() {
@@ -44,7 +45,7 @@ var MessageSection = React.createClass({
         <ul className="message-list" ref="messageList">
           {messageListItems}
         </ul>
-        <!--MessageComposer -->
+        <MessageComposer />
       </div>
     );
   },

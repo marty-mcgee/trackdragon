@@ -1,4 +1,4 @@
-// ChatExampleData.js -||- localStorage -||- alt
+// ChatExampleData.js
 
 module.exports = {
 

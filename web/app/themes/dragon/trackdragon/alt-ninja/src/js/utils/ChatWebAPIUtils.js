@@ -1,4 +1,4 @@
-// ChatWebAPIUtils.js -||- utils -||- alt
+// ChatWebAPIUtils.js
 
 var ChatServerActionCreators = require('../actions/ChatServerActionCreators');
 

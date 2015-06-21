@@ -1,32 +1,32 @@
 // ThreadSection.react.js
 
-var React = require('react');
 var ThreadStore = require('../stores/ThreadStore');
 var ThreadListItem = require('../components/ThreadListItem.react');
 var MessageStore = require('../stores/MessageStore');
-/*
 var UnreadThreadStore = require('../stores/UnreadThreadStore');
-var ListenerMixin = require('../../../../mixins/ListenerMixin');
-*/
+var ListenerMixin = require('../mixins/ListenerMixin');
+
+var React = require('react');
 
 function getStateFromStores() {
   return {
     threads: ThreadStore.getAllChrono(),
-    currentThreadID: ThreadStore.getCurrentID()/*,
-    unreadCount: UnreadThreadStore.getCount()*/
+    currentThreadID: ThreadStore.getCurrentID(),
+    unreadCount: UnreadThreadStore.getCount()
   };
 }
 
 var ThreadSection = React.createClass({
-  //mixins: [ListenerMixin],
+  // use State Mixins
+  mixins: [ListenerMixin],
 
   getInitialState: function() {
     return getStateFromStores();
   },
 
   componentDidMount: function() {
-    //this.listenTo(ThreadStore, this._onChange);
-    //this.listenTo(UnreadThreadStore, this._onChange);
+    this.listenTo(ThreadStore, this._onChange);
+    this.listenTo(UnreadThreadStore, this._onChange);
   },
 
   render: function() {
@@ -39,7 +39,7 @@ var ThreadSection = React.createClass({
           currentThreadID={this.state.currentThreadID} />
       );
     }, this);
-    /*
+
     var unread =
       this.state.unreadCount === 0 ?
       null :
@@ -48,18 +48,6 @@ var ThreadSection = React.createClass({
       <div className="thread-section">
         <div className="thread-count">
           {unread}
-        </div>
-        <ul className="thread-list">
-          {threadListItems}
-        </ul>
-      </div>
-    );
-    */
-    // TEMP PLACEHOLDER
-    return (
-      <div className="thread-section">
-        <div className="thread-count">
-          [unread]
         </div>
         <ul className="thread-list">
           {threadListItems}

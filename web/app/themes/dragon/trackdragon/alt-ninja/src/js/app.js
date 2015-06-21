@@ -1,4 +1,4 @@
-// app.js -||- alt
+// app.js -||- alt-ninja
 
 // This file bootstraps the entire application.
 
@@ -11,7 +11,7 @@ var ChatExampleData = require('./ChatExampleData');
 // 3 utils
 var ChatWebAPIUtils = require('./utils/ChatWebAPIUtils');
 
-// 4 react lib
+// 4 react view component lib
 var React = require('react');
 
 
