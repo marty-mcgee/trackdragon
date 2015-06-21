@@ -20,6 +20,7 @@
     "modernizr.js": {
       "bower": ["modernizr"]
     },
+    
     "dragon.css": {
       "files": [
         "styles/dragon.scss"
@@ -30,12 +31,14 @@
         "scripts/dragon.js"
       ]
     },
+
     "wae.css": {
       "files": [
-        "styles/wae.less"
+        "../trackdragon/wae/less/wae.less"
       ],
       "main": true
     }
+
   },
   "config": {
     "devUrl": "http://bedrock.trackdragon.com"
