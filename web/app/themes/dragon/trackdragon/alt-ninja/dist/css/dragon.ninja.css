@@ -1,0 +1,244 @@
+/* chatapp.css */
+
+body {
+  background-color: #222;
+  color: #ddd;
+  font-family: 'Muli', 'Helvetica Neue', helvetica, arial;
+  margin: 0;
+}
+
+h1 {
+  font-size: 24px;
+}
+h2 {
+  font-size: 20px;
+}
+h3 {
+  font-size: 16px;
+}
+h4 {
+  font-size: 14px;
+}
+
+/*
+h1 {
+  font-size: 20px;
+  background-color: #333;
+  color: #eee;
+  border-bottom: solid 3px #aaa;
+  margin: 0;
+  padding: 20px 20px;
+}*/
+
+a, 
+a:hover, 
+a:visited {
+  color: #80bd01;
+  text-decoration: none;
+}
+
+#ninja {
+  padding: 0 10px;
+  border: 0px solid #80bd01;
+}
+
+#react {
+  padding: 0 10px;
+  border: 0px solid #80bd01;
+}
+
+.chatapp {
+  /*font-family: 'Muli', 'Helvetica Neue', helvetica, arial;*/
+  /*max-width: 760px;*/
+  margin: 0px auto;
+  padding: 0;
+  overflow: hidden;
+  border: 0px solid #80bd01;
+}
+
+.message-list, 
+.thread-list {
+  border: 1px solid #111;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.message-list {
+  height: 260px;
+}
+
+.thread-list {
+  height: 320px;
+}
+
+.message-section {
+  float: right;
+  width: 65%;
+  border: 1px solid #111;
+}
+
+.thread-section {
+  float: left;
+  width: 32.5%;
+  border: 1px solid #111;
+}
+
+.message-thread-heading,
+.thread-count {
+  height: 40px;
+  margin: 0;
+}
+
+.message-list-item, .thread-list-item {
+  list-style: none;
+  padding: 12px 14px 14px;
+}
+
+.thread-list-item {
+  border-bottom: 1px solid #111;
+}
+
+.thread-list:hover .thread-list-item:hover {
+  background-color: #444;
+}
+
+.thread-list:hover .thread-list-item {
+  background-color: #222;
+}
+
+.thread-list-item.active,
+.thread-list:hover .thread-list-item.active,
+.thread-list:hover .thread-list-item.active:hover {
+  background-color: #333;
+}
+
+.message-author-name,
+.thread-name {
+  color: #66c;
+  float: left;
+  font-size: 13px;
+  margin: 0;
+}
+
+.message-time, .thread-time {
+  color: #aad;
+  float: right;
+  font-size: 12px;
+}
+
+.message-text, .thread-last-message {
+  clear: both;
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+.message-composer {
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 14px;
+  height: 3.75em;
+  width: 100%;
+  margin: 4px 0 0 0;
+  padding: 4px 4px 0 4px;
+  background-color: #333;
+  color: #ddd;
+  border: 1px solid #111;
+}
+
+footer {
+  float: left;
+  clear: both;
+}
+
+
+/* todomvc.css */
+
+/**
+ * We are not changing from display:none, but rather re-rendering instead.
+ * Therefore this needs to be displayed normally by default.
+ */
+#todo-list li .edit {
+  display: inline;
+}
+
+
+/* weathertabs.css */
+
+.search-box {
+  width: 360px;
+  margin: 20px 0 30px 0;
+}
+
+.search-location {
+  padding: 6px;
+  width: 180px;
+  margin-right: 10px;
+  font-size: 16px;
+  border-radius: 3px;
+  border: solid 1px #ccc;
+}
+
+button {
+  font-size: 16px;
+  padding: 6px 14px;
+  background: #333;
+  color: #eee;
+  border: solid 1px #999;
+  border-radius: 3px;
+}
+
+.content {
+  padding: 0 0px;
+}
+
+.pull-right {
+  float:right;
+}
+
+.weather-tab {
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #111;
+  border-radius: 3px;
+}
+
+.loading img {
+  margin: 0 auto;
+  display: block;
+  padding: 30px 0;
+}
+
+.nav {
+  list-style: none;
+  padding: 0;
+  margin: 0 0px;
+}
+
+.nav li {
+  display: inline;
+  margin: 0;
+  font-size: 16px;
+  padding: 10px 0;
+  background: #333;
+  position: relative;
+  bottom: 0px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.nav li a {
+  color: white;
+  padding: 0 1em;
+  text-decoration: none;
+}
+
+.nav li.selected {
+  background: #111;
+  padding-top: 12px;
+}
+
+.nav li.selected a {
+  color: #80bd01;
+}
