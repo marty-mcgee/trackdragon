@@ -1,13 +1,14 @@
 {
   "name": "dragon.ninja",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Flux alt react chat app; uses Dispatcher.waitFor();",
   "repository": "https://github.com/martymcgee/dragon.ninja",
   "license": "GPL-3.0+",
   "main": "src/js/app.js",
   "dependencies": {
     "alt": "^0.16.10",
-    "react": "^0.13.3"
+    "react": "^0.13.3",
+    "jquery": "^2.1.4"
   },
   "devDependencies": {
     "babel-jest": "^4.0.0",
@@ -18,7 +19,9 @@
     "uglify-js": "~2.4.15"
   },
   "scripts": {
-    "build": "browserify . | uglifyjs -cm > dist/js/dragon.ninja.js",
+    "build": "browserify src/js/app.js -t babelify --outfile dist/js/dragon.ninja.js",
+    "build-ugly": "browserify . | uglifyjs -cm > dist/js/dragon.ninja.js",
+    "clean": "rm -rf ./node_modules && npm install && npm run build",
     "test": "jest"
   },
   "authors": [
