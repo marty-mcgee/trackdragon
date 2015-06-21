@@ -2,7 +2,7 @@
 
 var ThreadStore = require('../stores/ThreadStore');
 var ThreadListItem = require('../components/ThreadListItem.react');
-var MessageStore = require('../stores/MessageStore');
+//var MessageStore = require('../stores/MessageStore');
 var UnreadThreadStore = require('../stores/UnreadThreadStore');
 var ListenerMixin = require('../mixins/ListenerMixin');
 
@@ -41,8 +41,8 @@ var ThreadSection = React.createClass({
     }, this);
 
     var unread =
-      this.state.unreadCount === 0 ?
-      null :
+      //this.state.unreadCount === 0 ?
+      //null :
       <span>Unread threads: {this.state.unreadCount}</span>;
     return (
       <div className="thread-section">
