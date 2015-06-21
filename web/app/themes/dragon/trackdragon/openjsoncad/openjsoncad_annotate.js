@@ -1,4 +1,9 @@
- 
+ // openJSONCad.js, a Parser function to handle JSONCAD JSON graphics specification
+//
+// Copyright (c) 2015 by James Reilly <jimreillyemail@gmail.com>
+//
+// Version: 0.001
+// License: MIT License
 OpenJSONCad.Viewer.prototype.toFrontView = function(e) {	if (!! e) {	e.preventDefault(); e.stopPropagation();}
 									this.controls_.reset();
 									this.camera_.up.set(0,1,0);

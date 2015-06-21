@@ -1,5 +1,9 @@
-//	June  6, 2015
-//  James Reilly (jimreillyemail  at gmail dot com)
+// openJSONCad.js, a Parser function to handle JSONCAD JSON graphics specification
+//
+// Copyright (c) 2015 by James Reilly <jimreillyemail@gmail.com>
+//
+// Version: 0.001
+// License: MIT License
 //
 // OpenJSONCad is an offshoot and extension of the OpenJSCad concept whose goal
 // is to provide a JSON specification and processing capablity to emulate, and
@@ -93,7 +97,7 @@
 //  text selection capabilities please let me know.)
 //  
 //  == openjscad.js  which was the genesis of this software but no longer uses any of its code
-//  was  originally written by Joost Nieuwenhuijse (MIT License)
+//    was  originally written by Joost Nieuwenhuijse (MIT License)
 //   few adjustments by Rene K. Mueller <spiritdude@gmail.com> for OpenJSCAD.org
 //
 // History:
@@ -259,6 +263,6 @@ OpenJSONCad.Viewer.prototype = {
 					 	  							this_.scene_.children.filter(function(ch) { return ch.userData.faces; }).forEach(function(faceMesh) { faceMesh.visible = !! this_.options.drawOptions_.faces;	}, this_);
 													if(this_.options.cameraStart_ == 'f') this_.toFrontView( );
 			
-						} catch(e) {  var errtxt = e.toString(); if(e.stack)  errtxt += '\nStack trace:\n'+e.stack;		 prompt("error",errtxt); }
+						} catch(e) {  var errtxt = e.toString(); if(e.stack)  errtxt += '\nStack trace:\n'+e.stack;		 prompt(errtxt,errtxt); }
 			}
 };

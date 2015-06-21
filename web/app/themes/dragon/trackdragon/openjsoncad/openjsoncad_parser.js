@@ -69,7 +69,11 @@ var gverbs = {
     ,"REDG"		: "REDG"			//	Rounded Wedge
     ,"RYRM"		: "RYRM"			//	Rounded Pyramid
     ,"TEXT"		: "TEXT"			//  Two Dimensional Text Rendered InSitu
-    ,"LINE"		: "LINE"			//  Two Dimensional Text Rendered InSitu
+    ,"LINE"		: "LINE"			//  Two Dimensional Line Rendered InSitu
+    ,"LIN3"		: "LIN3"			//  Three Dimensional Line
+    ,"PIN3"		: "PIN3"			//  Three Dimensional Line
+    ,"PSG3"		: "PSG3"			//  Three Dimensional Connected Line Segments
+    ,"LSG3"		: "LSG3"			//  Three Dimensional Connected Line Segments
     ,"INTE"		: "intersect"		//  CSG Inetersect function
     ,"UNIO"		: "union"			//  CSG union function
     ,"SUBT"		: "subtract"		//  CSG subtract function
@@ -83,15 +87,7 @@ var gverbs = {
     ,"subtract"	: "subtract"		//  CSG subtract function
     ,"invert"	: "invert"			//  Not sure what this does but I can call it :)
 };
-
-function textLine(o){
-			var group	= 	OpenJSONCad.Viewer.prototype.aLineOfText(o.text ,0,0,0, o.fontsize, o.fcolor, o.scale  );
-}
-
-function lineLine(o){
-			var line	= 	OpenJSONCad.Viewer.prototype.lineTo(0,0,0 ,o.x,o.y,o.z, o.color  );
-}
-
+ 
 function wireCube(o) {		// creates a wireframe cube 
     var 
 	  x2 =(o) ? (o.start)  ? o.start[0]	: 1 : 1
@@ -100,7 +96,7 @@ function wireCube(o) {		// creates a wireframe cube
     ,  x =(o) ? (o.end	)  ? o.end[0]	: 2 : 2
     ,  y =(o) ? (o.end	)  ? o.end[1]	: 2 : 2
     ,  z =(o) ? (o.end	)  ? o.end[2]	: 2 : 2
-    , sz =(o) ? (o.start)  ? 0.125		: 0.0125 : 0.0125					 
+    , sz =(o) ? (o.start)  ? 0.025		: 0.0125 : 0.0125					 
     , xs = x - 2 * sz
     , ys = y - 2 * sz
     , zs = z - 2 * sz;
@@ -119,7 +115,93 @@ function wireCube(o) {		// creates a wireframe cube
       , CSG.cube({size: 1}).scale([sz, y2, sz]).translate([ sz + xs , y2      , sz + zs ])
     ]);
 }
+function wireLine(o ) {			// creates a wireframe line made of a cube or a cylinder depending upon who calls it.
+	var	   ax	 =  o.x1-o.x0	// 
+		, by	 =  o.y1-o.y0	// ax,by,cz are the three coordinates for  x1,y1,z1 when the line is moved to [0,0,0]
+		, cz	 =  o.z1-o.z0	// 
+		, ax2	 =  ax  * ax	// x squared
+		, by2	 =  by  * by	// y squared 
+		, cz2	 =  cz  * cz	// z squared
+		, ax2by2 =  ax2 + by2	// Hypotenused squared when z = 0 plane
+		, ax2cz2 =  ax2 + cz2	// Hypotenused squared when y = 0 plane 
+		, by2cz2 =  by2 + cz2   // Hypotenused squared when x = 0 plane 
+		, sz	 =  o.lwidth ||  0.125 ; // with and depth of line  
+	//
+	// There are special cases when the [0,0,0]-[ax,by,cz] line is either  [x,0,0],  [0,y,0] or  [0,0,z]
+	// In these cases all that is needed is to generate the line in the correct orientation and move  
+	// it back to the original  x0,y0,z0 coordinates
+	//
 
+	if ( !ax2by2 || ! by2cz2 || ! ax2cz2)  {
+		var  a =   (!! ax2by2 && !! ax2cz2 )  ? ax / 2   : sz  //  
+			,b =   (!! ax2by2 && !! by2cz2 )  ? by / 2   : sz  // for lines as cubes
+			,c =   (!! by2cz2 &&  !!ax2cz2 )  ? cz / 2   : sz  //  
+			,d =	(a == sz) ? 0 : a	//  
+			,e =	(b == sz) ? 0 : b	// for lines as cylinders
+			,f =	(c == sz) ? 0 : c	//  
+			return (!  o.type) ?	new CSG.cube({size: 1}).scale([ a  , b, c]).translate([o.x0 + a, o.y0 + b, o.z0 + c])
+								:	new CSG.cylinder({start: [0, 0, 0],end: [d, e, f],radius: sz }).translate([o.x0  , o.y0  , o.z0 ])
+	}
+	//
+	// Very simple algorithm for orienting line made of cube or cylinder from [0,0,0] to [s,0,0] back to the original coordinates [x0,y0,z0]-[x1,y1,z1]
+	//  
+	// Most graphics processing engines use matrices or quaternions, however for our purposes simple Euler rotations (angle & axis) will do.
+	//			
+	//  Two steps... 
+	//   
+	// First step -  Use the length of the line s (The diagonal from 000 to xyz in the form of sqrt(xx+ yy+zz) as hypotenuse and yb as opposite in order to
+	//               calculate the Z rotation angle (positive or negative)   via  Arcsine  of the sin= yb/s 
+	//			 
+	//
+	//				(y is up-down, z is near far, x is left right)
+	//				Y Axis
+	//                 |      Z Axis
+	//				   |      /  
+	//				   |     /       +
+	//				   yb   cz     +
+	//				   |   /     +    s line rotated positively  on z axis
+	//				   |  /    +
+	//				   | /   +   
+	//		           |/  +   
+	//   X Axis -------0---ax +++++++++++ s (to be rotated up or down based upon value of arcsine (yb/s)  )
+	//				  /     +  
+	//				 / |      +  
+	//              /  |        +     s line rotated negatively   on z axis
+	//             /   |          + 
+	//            /    |            +  
+	//        +Z /  -Y |      
+	//				  
+	//
+	//	Second step -	Spin the new angled s line on the Y axis to the correct [ax,0, cz] coordinate.
+	//					This can be done by treating the 3d system as a 2d rotation around x,z in the y = 0 plane and acquiring the 
+	//					hypotenuse (ss) of the 2d triangle with points    [0,0,0], [ax,0,0], [0,0,cz]  
+	//					The ss  value can be used to obtain the arccosine angle by using the yb/ss cosine value of that 2d right triangle.
+	//
+	//  There are three special cases to modify the result depending upon the values of ax, and cz. The arccos  value is correct but it needs to be placed
+	//  in the correct quadrant orientation 
+	// 
+
+	var   s		=  Math.sqrt(ax2 + by2 + cz2)						// Length of original line via 3d hypotenuse
+		, ss	=  Math.sqrt(ax2 + cz2  )							// Length of 2d hypotenuse in y=0 plane
+		, s2	=  s/2												// Radius for creating CSG primitives
+		, zdeg	=  Math.asin( by/s)				* 180/ Math.PI		// Degrees to rotate up or down on the Z axis
+		, ydeg	=  Math.acos(Math.abs( ax) /ss)	* 180/ Math.PI  ;	// Degrees to rotate around the y axis .
+		  ydeg =   (ax <= 0 && cz > 0)	? 180  + ydeg				//
+				:  (ax <= 0 && cz < 0)	? 180  - ydeg 				// Adding or subtractiong degrees depending upon what  x +-, z +- quadrant 
+				:  (ax >= 0 && cz > 0)	? 	   - ydeg  				// 
+				:								 ydeg;
+ 		return (!  o.type) ?	new CSG.cube({size: 1}).scale([ s2,sz,sz]).translate([s2,sz,sz]).rotateZ(zdeg).rotateY(ydeg).translate([o.x0, o.y0, o.z0])   
+						   : 	new CSG.cylinder({start: [0, 0, 0],end: [s, 0, 0],radius: sz }).rotateZ(zdeg).rotateY(ydeg).translate([o.x0, o.y0, o.z0]); 
+ }
+function segsLine(o){  // function shifts coordinates to generate new lines from instance data
+	 o.x0 =	 o.x1
+	 o.y0 =	 o.y1
+	 o.z0 =	 o.z1
+	 o.x1 =  o.instances[o.i].x
+	 o.y1 =  o.instances[o.i].y
+	 o.z1 =  o.instances[o.i].z
+	 return  wireLine(o ).translate([-o.x1,-o.y1,-o.z1]); // let wireLine create each line and pass it back 
+}
 function doSizeColor(op, ob) { 
 
 // once the object is created this function sets the size and color per the options parameter
@@ -166,6 +248,7 @@ function VOBJ(o) {		// I have no idea why it is required to be explicit in this 
 function CUBE(o) {
     return doSizeColor(o, CSG.cube({size: 1}).scale([o.dimx, o.dimy, o.dimz]));
 }
+
 function BOXZ(o) {
     return doSizeColor(o, CSG.cube({size: 1}).scale([o.dimx, o.dimy, o.dimz]).translate([o.dimx, o.dimy, o.dimz]));
 }
@@ -177,6 +260,20 @@ function ROXZ(o) {
 }
 function WOXZ(o) {
     return doSizeColor(o, wireCube({start: [o.dimx, o.dimy, o.dimz],end: [o.x, o.y, o.z]}));
+}
+function LIN3(o) {
+    return doSizeColor(o, wireLine(o));
+}
+function LSG3(o) {
+	
+    return doSizeColor(o, segsLine(o));
+}
+function PIN3(o) {
+    return doSizeColor(o, wireLine(o));
+}
+function PSG3(o) {
+	
+    return doSizeColor(o, segsLine(o));
 }
 function PIPE(o) {
     return doSizeColor(o, CSG.cylinder({start: [0, 0, 0],end: [0, 0, o.len],radius: o.r }));
@@ -251,6 +348,16 @@ function makeParms(vb, o, nodeSet ,  each ) {
             return sizeColor(o[2], o[3], {r0: o[0],res: o[1]});
         case 'DNUT':
             return sizeColor(o[5], o[6], {ri: o[0],fni: o[1],roti: o[2],ro: o[3],fno: o[4]});
+        case 'LIN3':	
+            return  ( o.length < 6) ?	sizeColor(o[1], o[2], { x0 : 0    ,y0 : 0    ,z0:  0   ,x1: o[0] ,y1: 0    ,z1:  0   ,lwidth : o[3] } ) 
+									:	sizeColor(o[6], o[7], { x0 : o[0] ,y0 : o[1] ,z0: o[2] ,x1: o[3] ,y1: o[4] ,z1: o[5] ,lwidth : o[8] } );
+        case 'LSG3':	
+            return  sizeColor(o[3], o[4], { x0: o[0] ,y0 : o[1] ,z0: o[2],x1: o[0] ,y1: o[1] ,z1: o[2] ,lwidth : o[5] } );
+        case 'PIN3':	
+            return  ( o.length < 6) ?	sizeColor(o[1], o[2], { x0 : 0    ,y0 : 0    ,z0:  0   ,x1: o[0] ,y1: 0    ,z1:  0   , type : 'pipe' ,lwidth : o[3]}  ) 
+									:	sizeColor(o[6], o[7], { x0 : o[0] ,y0 : o[1] ,z0: o[2] ,x1: o[3] ,y1: o[4] ,z1: o[5] , type : 'pipe' ,lwidth : o[8]} );
+        case 'PSG3':	
+            return  sizeColor(o[3], o[4], { x0: o[0] ,y0 : o[1] ,z0: o[2],x1: o[0] ,y1: o[1] ,z1: o[2]  , type : 'pipe' ,lwidth : o[5] } );
         case 'CUBE':
             return sizeColor(o[3], o[4], {x: o[0],y: o[1],z: o[2],dimx: o[0] / 2,dimy: o[1] / 2,dimz: o[2] / 2});
         case 'BOXZ':
@@ -336,20 +443,23 @@ function makeVirtualObject(nodeSet,  setOperator,basenode) {
 
             continue;
         }
-        var gType	= gverbs[ (nodeSet[each][0]).toUpperCase()]					// normalizing all operation verbs before using them
+        var gType	= gverbs[ (nodeSet[each][0]).toUpperCase()]							// normalizing all operation verbs before using them
 
-        , params	= makeParms( gType, nodeSet[each][1], basenode ,  each )		// normalizing all the parameters to process
+        , params	= makeParms( gType, nodeSet[each][1], basenode ,  each );			// normalizing all the parameters to process
 
-        , instances = makeInstances(    nodeSet[each][2]);						// normalizing all the instance data to process
+			params.instances = makeInstances(    nodeSet[each][2]);						// normalizing all the instance data to process
         
-        for (var i = 0; i < instances.length; i++)
+        for ( params.i = 0;  params.i < params.instances.length;  params.i++)
 
-            gObjSet.push(rotateTranslate(this[ gType ](params), instances[i])); //this is where the real work occurs.  
-																				// Each function is called by this[gType](params) which makes an generic call to the 
-																				// Correct function defined by each gType variable, which in turn is a normalized 
-																				// name of a function call.
-																				// The return from this[]() function call is CSG object that is sent to rotate/translate and 
-																				// Finally put into an array to be consolidated upon return from the makeVirtualObject function
+            gObjSet.push(rotateTranslate(this[ gType ](params), params.instances[ params.i])); //this is where the real work occurs.  
+																							// Each function is called by this[gType](params) which makes an generic call to the 
+																							// Correct function defined by each gType variable, which in turn is a normalized 
+																							// name of a function call.
+																							// The return from this[]() function call is CSG object that is sent to rotate/translate and 
+																							// Finally put into an array to be consolidated upon return from the makeVirtualObject function
+																							// The counter "i" and the instances variable are attached to the params object so that they 
+																							// can be used when generating wireLine (3d lines made of transford cubes) or wirePipe (cylinders
+																							// used as lines or as pipe) segments.
     }
     return (setOperator == 'intersect') ?	(new CSG()).intersect(gObjSet) 
 		:  (setOperator == 'subtract' ) ?	 difference (gObjSet)		// still requires openscad for this function
