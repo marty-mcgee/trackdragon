@@ -10,6 +10,20 @@ web/app/uploads/*
 !web/app/mu-plugins/register-theme-directory.php
 !web/app/mu-plugins/bedrock-autoloader.php
 
+# TrackDragon
+web/app/themes/dragon/trackdragon/alt-notify
+web/app/themes/dragon/trackdragon/alt-react-router-example
+web/app/themes/dragon/trackdragon/alt-tutorial
+web/app/themes/dragon/trackdragon/alt
+web/app/themes/dragon/trackdragon/avr/media/tmp/*
+web/app/themes/dragon/trackdragon/flux-comparison
+web/app/themes/dragon/trackdragon/frnt
+web/app/themes/dragon/trackdragon/marty-chat-es6
+web/app/themes/dragon/trackdragon/marty-chat
+web/app/themes/dragon/trackdragon/marty-todomvc
+web/app/themes/dragon/trackdragon/marty
+web/app/themes/dragon/trackdragon/martyjs
+
 # WordPress
 web/wp
 web/.htaccess
