@@ -1,4 +1,16 @@
-/* chatapp.css */
+/* dragon.ninja.css */
+
+#ninja {
+  padding: 0 10px;
+  margin-bottom: 10px;
+  border: 0px solid #80bd01;
+}
+
+#react {
+  padding: 0 10px;
+  margin-bottom: 10px;
+  border: 0px solid #80bd01;
+}
 
 body {
   background-color: #222;
@@ -37,15 +49,7 @@ a:visited {
   text-decoration: none;
 }
 
-#ninja {
-  padding: 0 10px;
-  border: 0px solid #80bd01;
-}
-
-#react {
-  padding: 0 10px;
-  border: 0px solid #80bd01;
-}
+/* chat app */
 
 .chatapp {
   /*font-family: 'Muli', 'Helvetica Neue', helvetica, arial;*/
@@ -164,7 +168,7 @@ footer {
 }
 
 
-/* weathertabs.css */
+/* roomtabs.css */
 
 .search-box {
   width: 360px;
@@ -197,9 +201,8 @@ button {
   float:right;
 }
 
-.weather-tab {
+.room-tab {
   padding: 10px;
-  margin-bottom: 10px;
   background: #111;
   border-radius: 3px;
 }

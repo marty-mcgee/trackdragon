@@ -1,15 +1,15 @@
-// WeatherStore.js
+// RoomStore.js
 
-class WeatherStore {
+class RoomStore {
   constructor(alt) {
-    this.bindActions(alt.getActions('WeatherActions'));
+    this.bindActions(alt.getActions('RoomActions'));
     this.loading = false;
-    this.weather = null;
+    this.room = null;
     this.showRaw = false;
     this.location = null;
   }
 
-  loadWeather(location) {
+  loadRoom(location) {
     this.location = location;
     this.loading = true;
   }
@@ -18,8 +18,8 @@ class WeatherStore {
     this.loading = isLoading;
   }
 
-  setWeather(weather) {
-    this.weather = weather;
+  setRoom(room) {
+    this.room = room;
   }
 
   showRaw(showRaw) {
@@ -27,4 +27,4 @@ class WeatherStore {
   }
 }
 
-module.exports = WeatherStore;
+module.exports = RoomStore;

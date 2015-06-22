@@ -22,7 +22,7 @@ var AltManager = require('alt/utils/AltManager');
 var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStore');
 
-var WeatherTab = require('./WeatherTab.jsx');
+var RoomTab = require('./RoomTab.jsx');
 
 var manager = new AltManager(Alt);
 AppActions.setManager(manager);
@@ -35,11 +35,11 @@ module.exports = React.createClass({
 
   render: function() {
     var locationLinks = [];
-    var weatherApp = null;
+    var roomApp = null;
 
     if (this.state.location) {
-      weatherApp = (
-        <WeatherTab
+      roomApp = (
+        <RoomTab
           alt={manager.getOrCreate(this.state.location)}
           location={this.state.location} />
       );
@@ -59,6 +59,13 @@ module.exports = React.createClass({
 
     return (
       <div>
+        <h1 ref="title">
+          <span className="pull-right">
+            <!-- --||-- -->
+            <a href="#track">track</a>|><a href="#dragon">ragon</a>
+          </span>
+          -||- <a href="https://dragon.ninja" target="_blank">dragon.ninja</a>
+        </h1>
         <div className="content">
           <form className="search-box" onSubmit={this._onClickSubmit}>
             <input
@@ -68,8 +75,13 @@ module.exports = React.createClass({
             <button>Create Room</button>
           </form>
           <ul className="nav">{locationLinks}</ul>
-          {weatherApp}
+          {roomApp}
         </div>
+        <footer ref="footer">
+          <span ref="support">
+            <!-- --||-- -->
+          </span>
+        </footer>
       </div>
     );
   },

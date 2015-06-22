@@ -1,22 +1,22 @@
-// WeatherTab.jsx
+// RoomTab.jsx
 
 var React = require('react');
 var AltManagerMixin = require('../mixins/AltManagerMixin');
 var AppActions = require('../actions/AppActions');
-var WeatherActions = require('../actions/WeatherActions');
-var WeatherStore = require('../stores/WeatherStore');
+var RoomActions = require('../actions/RoomActions');
+var RoomStore = require('../stores/RoomStore');
 
 module.exports = React.createClass({
 
-  displayName: 'WeatherTab',
+  displayName: 'RoomTab',
 
   mixins: [AltManagerMixin],
-  statics: { registerStore: WeatherStore, registerAction: WeatherActions },
+  statics: { registerStore: RoomStore, registerAction: RoomActions },
 
   onNewAlt: function(state, newProps) {
-    // load weather if none exists
+    // load room if none exists
     if (!state.location && !state.loading) {
-      this.action.loadWeather(newProps.location);
+      this.action.loadRoom(newProps.location);
     }
   },
 
@@ -28,26 +28,26 @@ module.exports = React.createClass({
     AppActions.deleteLocation(this.props.location);
   },
 
-  getWeatherContent: function() {
+  getRoomContent: function() {
     if (this.state.loading) {
-      return <div className="loading"><img src="media/loading.gif" /></div>;
+      return <div className="loading">loading room...</div>;
     }
 
-    if (!this.state.weather) {
-      return <p>Error loading weather data, check location</p>;
+    if (!this.state.room) {
+      return <p>Error loading room data, check location</p>;
     }
 
-    var weather = this.state.weather;
+    var room = this.state.room;
     var rawData = null;
     var showText = 'Show Raw JSON';
     if (this.state.showRaw) {
-      rawData = <pre>{JSON.stringify(weather, null, 4)}</pre>;
+      rawData = <pre>{JSON.stringify(room, null, 4)}</pre>;
       showText = 'Hide Raw JSON';
     }
 
     return (
-      <div className="weather-data">
-        <h4>Current Temp: {weather.main.temp}K, {weather.weather[0].description}</h4>
+      <div className="room-data">
+        <h4>Current Resonance: {room.main.temp}kHz, {room.weather[0].description}</h4>
         <button onClick={this._onClickShowRaw}>
           {showText}
         </button>
@@ -58,12 +58,12 @@ module.exports = React.createClass({
 
   render: function() {
     return (
-      <div className="weather-tab">
+      <div className="room-tab">
         <button className="pull-right" onClick={this.onClickDelete}>
           Close Room
         </button>
         <h3>Room Name: "{this.state.location}"</h3>
-        {this.getWeatherContent()}
+        {this.getRoomContent()}
       </div>
     );
   },

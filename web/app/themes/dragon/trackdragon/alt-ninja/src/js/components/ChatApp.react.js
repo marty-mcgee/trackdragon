@@ -12,20 +12,8 @@ var ChatApp = React.createClass({
   render: function() {
     return (
       <div className="chatapp">
-      	<h1 ref="title">
-          <span className="pull-right">
-            <!-- --||-- -->
-            <a href="#track">track</a>|><a href="#dragon">ragon</a>
-          </span>
-          -||- <a href="https://dragon.ninja" target="_blank">dragon.ninja</a>
-        </h1>
         <ThreadSection />
         <MessageSection />
-        <footer ref="footer">
-      		<span ref="support">
-            <!-- --||-- -->
-          </span>
-      	</footer>
       </div>
     );
   }

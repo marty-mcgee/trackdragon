@@ -1,17 +1,17 @@
-// WeatherActions.js
+// RoomActions.js
 
 var $ = require('jquery');
 
-class WeatherActions {
+class RoomActions {
   constructor() {
     this.generateActions(
       'setLoading',
-      'setWeather',
+      'setRoom',
       'showRaw'
     );
   }
 
-  loadWeather(location) {
+  loadRoom(location) {
     this.dispatch(location);
     $.ajax('http://api.openweathermap.org/data/2.5/weather', {
       crossDomain: true,
@@ -20,7 +20,7 @@ class WeatherActions {
         // we put in a fake delay here to show the loading icon
         setTimeout(() => {
           if (data.weather) {
-            this.actions.setWeather(data);
+            this.actions.setRoom(data);
           }
           this.actions.setLoading(false);
         }, 500);
@@ -32,4 +32,4 @@ class WeatherActions {
   }
 }
 
-module.exports = WeatherActions;
+module.exports = RoomActions;
