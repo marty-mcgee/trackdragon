@@ -13,10 +13,11 @@ var ChatApp = React.createClass({
     return (
       <div className="chatapp">
       	<h1 ref="title">
-          track|>ragon
           <span className="pull-right">
-            -||- <a href="https://dragon.ninja" target="_blank">dragon.ninja</a>
+            <!-- --||-- -->
+            <a href="#track">track</a>|><a href="#dragon">ragon</a>
           </span>
+          -||- <a href="https://dragon.ninja" target="_blank">dragon.ninja</a>
         </h1>
         <ThreadSection />
         <MessageSection />

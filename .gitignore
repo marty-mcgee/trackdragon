@@ -13,6 +13,7 @@ web/app/uploads/*
 # TrackDragon
 web/app/themes/dragon/trackdragon/alt-notify
 web/app/themes/dragon/trackdragon/alt-react-router-example
+web/app/themes/dragon/trackdragon/alt-search-docs
 web/app/themes/dragon/trackdragon/alt-tutorial
 web/app/themes/dragon/trackdragon/alt
 web/app/themes/dragon/trackdragon/avr/media/tmp/*
